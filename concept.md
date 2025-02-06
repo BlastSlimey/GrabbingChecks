@@ -1,0 +1,77 @@
+## Concept
+
+- Redirect savefile path to connection-specific path
+
+- 3 difficulties:
+  - vanilla
+  - extra buff
+  - challenge
+
+- Items:
+  - Grip Strength 
+    - friction multiplier increase, starts with x0.4, increases by 0.2, 1 aka 3x is vanilla, expected max x2 aka 8x
+  - Swinging Metal Beam 
+    - activating rb.AddTorque(), only 1x
+  - Metal Beam Angle Increase 
+    - |jointAngle| < ...f, starts with 0.11, increases by same amount, 0.33 aka 2x is vanilla, max 0.44 aka 3x
+  - Deafness Trap 
+    - disable sound permanently, only 1x
+    - Not working
+  - Rotating Cog Repair 
+    - start with spinning in wrong direction, item fixes that, only 1x
+  - Rotating Cog Halting 
+    - only 1x
+  - Side Cog Halting 
+    - only 1x
+
+- Locations:
+  - Touching each surface type (16 total):
+    - Rock
+    - Wood
+    - Metal
+    - RunningWater
+    - Concrete
+    - Ice
+    - Snow
+    - Foliage
+    - Rubber
+    - Wet
+    - MetalStiff
+    - Cloth
+    - Plank
+    - Mushroom
+    - Bone
+    - Cloud
+
+- Regions and rules:
+  - sphere 1
+    - needs nothing
+    - Rock
+    - Wood
+    - Foliage
+  - after first gap
+    - needs 3 grip strength on vanilla/extra buff, 1 on challenge
+    - Plank
+    - Wet
+    - MetalStiff
+    - Metal
+  - after gas pump
+    - needs 3 grip strength on vanilla/extra buff, 2 on challenge
+    - Bone
+    - Concrete
+  - after first difficult jump
+    - needs 3 grip strength
+    - RunningWater
+  - after cogs
+    - vanilla needs rotating cog repair
+    - extra buff needs rotating and side cog halting
+    - Rubber
+    - Cloth
+  - after metal beam
+    - needs swinging metal beam
+    - needs 4 metal beam angle increase on vanilla and extra buff, 2 on challenge
+    - extra buff needs 6 grip strength
+    - Ice
+    - Snow
+    - Mushroom
+    - Cloud
