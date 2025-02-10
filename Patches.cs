@@ -148,7 +148,7 @@ public class SaveSystemJPatch {
     [HarmonyPostfix]
     private static void GetDataPathPostfix(ref string __result) {
         if (ConnectionHandler.Success != null) {
-            __result += GetUuid();
+            __result += "-" + ConnectionHandler.Session.RoomState.Seed + "-" + ConnectionHandler.Success.Slot;
         }
     }
 
@@ -156,19 +156,8 @@ public class SaveSystemJPatch {
     [HarmonyPostfix]
     private static void GetSlotPathPostfix(ref string __result) {
         if (ConnectionHandler.Success != null) {
-            __result += GetUuid();
+            __result += "-" + ConnectionHandler.Session.RoomState.Seed + "-" + ConnectionHandler.Success.Slot;
         }
-    }
-
-    public static string GetUuid() {
-        if (uuid == null) {
-            string s = ConnectionHandler.Session.ConnectionInfo.Uuid;
-            foreach (char c in Path.GetInvalidFileNameChars()) {
-                s.Replace(c, '-');
-            }
-            uuid = s;
-        }
-        return uuid;
     }
 
 }
