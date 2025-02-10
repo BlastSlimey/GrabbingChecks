@@ -72,7 +72,11 @@ public class ConnectionHandler {
             Success = (LoginSuccessful)result;
             logger.LogInfo("Connection successful");
             Session.Items.ItemReceived += (ReceivedItemsHelper receivedItemsHelper) => {
-                ProcessReceived(receivedItemsHelper.DequeueItem());
+                try {
+                    ProcessReceived(receivedItemsHelper.DequeueItem());
+                } catch (Exception e) {
+                    logger.LogError("Receiving item failed: " + e.Message);
+                }
             };
             Session.MessageLog.OnMessageReceived += (LogMessage message) => {
                 logger.LogInfo(message.ToString());
