@@ -67,6 +67,7 @@ public class ConnectionHandler {
                 errorMessage += $"\n    {error}";
             }
             logger.LogError(errorMessage);
+            ProcessOfflineList();
         } else {
             Success = (LoginSuccessful)result;
             logger.LogInfo("Connection successful");
